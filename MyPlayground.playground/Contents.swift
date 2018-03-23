@@ -24,37 +24,22 @@ import AppFrameWork
 // MARK -- solution 2
 
 import SwiftSocket
-//let client2 = TCPClient(address: "localhost", port: 8080)
-//switch client2.connect(timeout: 10) {
-//    case .success:
-//        if let data = client2.read(1024)  {
-//            if let response = String(bytes: data, encoding: .utf8) {
-//                print(response)
-//            }else {
-//                print("here")
-//            }
-//        }else {
-//            print("empty data")
-//        }
-//
-//
-//    case .failure(let error):
-//        print("fail")
-//}
-//client2.close()
-let client = TCPClient(address: "www.apple.com", port: 80)
-switch client.connect(timeout: 1) {
-case .success:
-    switch client.send(string: "GET / HTTP/1.0\n\n" ) {
+let client2 = TCPClient(address: "localhost", port: 8080)
+switch client2.connect(timeout: 10) {
     case .success:
-     let data = client.read(1024*10)
-        
-        if let response = String(bytes: data!, encoding: .utf8) {
-            print(response)
+        if let data = client2.read(1024)  {
+            if let response = String(bytes: data, encoding: .utf8) {
+                print(response)
+            }else {
+                print("here")
+            }
+        }else {
+            print("empty data")
         }
+
+
     case .failure(let error):
-        print(error)
-    }
-case .failure(let error):
-    print(error)
+        print("fail")
 }
+client2.close()
+
